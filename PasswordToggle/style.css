@@ -1,0 +1,37 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body{
+    background-color:rgb(6, 204, 244) ;
+}
+
+.password-box{
+    display:flex;
+    align-items: center;
+    width: 90%;
+    max-width: 300px;
+    margin:250px 470px  auto ;
+    padding:5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    
+}
+
+.password-box input{
+    height: 25px;
+    width: 410px;
+    margin:5px;
+    outline:0;
+    border:0;
+    font-size: medium;
+}
+.password-box img{
+    margin:5px;
+    padding:2px;
+    height: 20px;
+    cursor: pointer;
+}
