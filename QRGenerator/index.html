@@ -6,18 +6,18 @@
     <title>QR Code Generator</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">  
- 
-
 
 </head>
 <body>
     
     <div class="container">
         <h1>QR Code Generator</h1>
-        <input type="Text" placeholder=" Text or URL">
-        <button>Generate QR!</button>
+        <input type="Text" id ="qr-text"placeholder=" Text or URL">
+        <div id="qr-box">
+            <img id ="qr-img"src="" alt="">
+        </div>
+        <button onClick="Generator()">Generate QR!</button>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
