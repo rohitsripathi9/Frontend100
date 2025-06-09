@@ -7,3 +7,4 @@ A simple and smooth loading animation using CSS flexbox and keyframe animations.
 ![Loading Animation](LoadAnimation/assets/demo.gif)
 
 
+
