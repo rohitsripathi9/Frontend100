@@ -4,6 +4,6 @@ A simple and smooth loading animation using CSS flexbox and keyframe animations.
 
 ## Preview
 
-![Loading Animation](./assets/loading.gif)
+![Loading Animation](LoadAnimation/assets/loading.gif)
 
 
