@@ -1,21 +1,26 @@
-#Resume Assignment - ByteExcel
+# Resume Assignment - ByteExcel
+
 A personal resume website built with HTML and CSS for ByteExcel assignment.
 
-##Project Overview
+## Project Overview
+
 This project demonstrates web development skills by creating a professional resume using pure HTML and CSS.
 
-##How to View
-Clone or download the project
-Open index.html in any web browser
-Resume will display with full styling
+## How to View
 
-##Technologies Used
-HTML5
-CSS3 (Flexbox)
+1. Clone or download the project
+2. Open index.html in any web browser
+3. Resume will display with full styling
 
-##Submitted By
+## Technologies Used
+
+- HTML5
+- CSS3 (Flexbox)
+
+## Submitted By
+
 S Rohit
 
-##Date
-22 July 2025
+## Date
 
+22 July 2025
