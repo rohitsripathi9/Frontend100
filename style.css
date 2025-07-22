@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 210mm; 
+  min-height: 297mm;   
+  margin: 20px auto;
+  padding: 20mm;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+body {
+    font-family: 'Inter', 'Calibri', 'Helvetica', sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #222;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+h3{
+    color:  rgb(25, 126, 250);
+}
+
+h5 {
+  font-size: 0.8rem;
+  margin: 2px 0 5px;
+  color: #2f2f2f;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+img{
+    height:15px;
+    width:15px;
+}
+
+.user-name{
+    text-align: center;
+    padding-bottom: 15px;
+    color: rgb(25, 126, 250);
+}
+
+.links{
+    display:flex;
+    justify-content: center;
+    gap:50px;
+    margin: 10px 0px 10px 0px;
+    align-items: center;
+}
+
+.links > div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:8px;
+
+}
+
+.links > div a{
+    text-decoration: none;
+    color: #333;
+}
+
+
+.objective, .skills, .projects ,.certifications ,.Extra-Curricular-Activities ,.achivements{
+    margin:15px 0px 10px;
+    display:flex;
+    flex-direction: column;
+    gap:6px;
+}
+
+.skills-list{
+    display: flex;   
+    align-items: flex-start;
+    gap:30px;
+    
+}
+
+
+.what,.where ,.intern {
+    padding: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:30px;
+}
+ul{
+    margin-left: 20px;
+}
+
+.bold-label{
+    font-weight: 500;
+}
