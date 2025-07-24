@@ -1,0 +1,72 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+
+}
+
+.keyboard{
+display:grid;
+grid-template-columns:repeat(14,1fr);
+gap:20px;
+justify-content: center;
+align-items: center;
+width:75%;
+border: 13px solid rgb(67, 67, 67);
+padding:40px;
+}
+
+.keyboard >div {
+background-color: rgb(50, 50, 50);
+color: rgb(255, 255, 255);
+height:100px;
+align-items: center;
+display: flex;
+justify-content: center;
+font-size: 30px;
+border:3px solid black;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: bold;
+border-radius: 20px ;
+cursor :pointer;
+transition: all 0.1s ease;
+
+}
+
+.keyboard > div:hover{
+    background-color: rgb(34, 34, 34);
+    transform: translateY(-2px) ;
+        box-shadow: 3px 4px 8px rgba(0,0,0,0.3);   /* Shadow for depth */
+
+}
+
+.keyboard>div:active{
+    background-color: black;
+    transform:translateY(2px);
+}
+
+.spacebar{
+grid-column: span 6;
+background-color: rgb(50, 50, 50);
+
+}
+
+.enter{
+grid-column: span 2 ;
+    background-color: rgb(50, 50, 50);
+
+}
+
+.shift{
+    grid-column: span 2;
+}
+
+.title{
+    height: 30px;
+    font-size: 100px;
+    text-align: center;
+    padding:10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:bolder
+}
