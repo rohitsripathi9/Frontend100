@@ -10,4 +10,4 @@ It mimics the appearance of a real physical keyboard using CSS Grid.
 - Hover and click effects for interactivity
 
 ## Preview
-![Keyboard Preview](https://github.com/rohitsripathi9/Frontend100/blob/main/Keyboard/Preview.gif?raw=true)
+![Keyboard Preview](https://raw.githubusercontent.com/rohitsripathi9/Frontend100/refs/heads/main/Keyboard/pre.gif)
