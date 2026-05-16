@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify - web player: music for everyone</title>
+    <meta name="description" content="Spotify Clone - Web player for music streaming. Listen to your favorite songs, albums, and playlists.">
+    <title>Spotify - Web Player: Music for everyone</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,13 +14,14 @@
 </head>
 <body>
     <div class="main">
+        <!-- Sidebar -->
         <div class="side-bar">
             <div class="nav">
-                <div class="nav-option" style="opacity:1;">
+                <div class="nav-option active" id="nav-home">
                     <i class="fa-solid fa-house"></i>
                     <a href="#">Home</a>
                 </div>
-                <div class="nav-option">
+                <div class="nav-option" id="nav-search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <a href="#">Search</a>
                 </div>
@@ -27,146 +29,388 @@
             <div class="library">
                 <div class="options">
                     <div class="lib-options nav-option">
-                        <img src="library_icon.png" alt="Library Icon">
+                        <i class="fa-solid fa-lines-staggered"></i>
                         <a href="#">Your Library</a>
                     </div>
                     <div class="icons">
-                        <i class="fa-solid fa-plus"></i>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-plus" id="add-playlist-btn" title="Create playlist"></i>
+                        <i class="fa-solid fa-arrow-right" id="expand-library-btn" title="Show more"></i>
                     </div>
                 </div>
                 <div class="lib-box">
                     <div class="box1">
-                        <p class="box-p1 t1">Create your first playlist</p>
+                        <p class="box-p1">Create your first playlist</p>
                         <p class="box-p2">It's easy, we'll help you</p>
-                        <button class="badge">Create playlist</button>
+                        <button class="badge" id="create-playlist-btn">Create playlist</button>
                     </div>
                     <div id="end" class="box2">
                         <p class="box-p1">Let's find some podcasts to follow</p>
                         <p class="box-p2">We'll keep you updated on new episodes</p>
-                        <button class="badge">Browse podcasts</button>
+                        <button class="badge" id="browse-podcast-btn">Browse podcasts</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="main-content">
+
+        <!-- Main Content -->
+        <div class="main-content" id="main-content">
             <div class="sticky-nav">
                 <div class="arrow">
-                    <img src="backward_icon.png" alt="Backward Icon">
-                    <img src="forward_icon.png" class="hide" alt="Forward Icon">
+                    <button class="nav-arrow" id="btn-back" title="Go back">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-arrow" id="btn-forward" title="Go forward">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
                 </div>
                 <div class="buttons">
-                    <button class="top-button hide">Explore Premium</button>
-                    <button class="top-button b1"><i class="fa-regular fa-circle-down"></i> Install app</button>
-                    <i class="fa-regular fa-user"></i>
+                    <button class="top-button premium-btn hide" id="explore-premium-btn">Explore Premium</button>
+                    <button class="top-button install-btn" id="install-app-btn">
+                        <i class="fa-regular fa-circle-down"></i> Install app
+                    </button>
+                    <button class="user-avatar" id="user-avatar-btn" title="User profile">
+                        <i class="fa-regular fa-user"></i>
+                    </button>
                 </div>
             </div>
-            
-                <h2>Recently played</h2>
+
+            <!-- Greeting Section -->
+            <div class="greeting-section" id="greeting-section">
+                <h1 class="greeting" id="greeting-text">Good afternoon</h1>
+                <div class="quick-picks">
+                    <div class="quick-card" data-song="tum-hi-ho">
+                        <img src="card2img.jpeg" alt="Tum Hi Ho">
+                        <span>Tum Hi Ho</span>
+                    </div>
+                    <div class="quick-card" data-song="channa-mereya">
+                        <img src="card3img.jpeg" alt="Channa Mereya">
+                        <span>Channa Mereya</span>
+                    </div>
+                    <div class="quick-card" data-song="apna-bana-le">
+                        <img src="card1img.jpeg" alt="Apna Bana Le">
+                        <span>Apna Bana Le</span>
+                    </div>
+                    <div class="quick-card" data-song="top-global">
+                        <img src="card5img.jpeg" alt="Top 50 Global">
+                        <span>Top 50 - Global</span>
+                    </div>
+                    <div class="quick-card" data-song="hi-nanna">
+                        <img src="card6img.jpeg" alt="Hi Nanna OST">
+                        <span>Hi Nanna OST</span>
+                    </div>
+                    <div class="quick-card" data-song="best-2024">
+                        <img src="card4img.jpeg" alt="Best of 2024">
+                        <span>Best of 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recently Played -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2>Recently played</h2>
+                    <a href="#" class="show-all">Show all</a>
+                </div>
                 <div class="cards-container">
-                    <div class="card">
-                        <img src="card1img.jpeg" class="img-card">
+                    <div class="card" data-song="best-2024" id="card-1">
+                        <div class="card-img-wrapper">
+                            <img src="card1img.jpeg" class="img-card" alt="Best of 2024">
+                            <button class="play-btn-card" aria-label="Play Best of 2024">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
                         <p class="title">Best of 2024</p>
                         <p class="info">Your daily updates of most played tracks...</p>
                     </div>
-                </div>
-
-                <h2>Trending now near you</h2>
-                <div class="cards-container">
-                    <div class="card">
-                        <img src="card2img.jpeg" class="img-card">
+                    <div class="card" data-song="tum-hi-ho" id="card-2">
+                        <div class="card-img-wrapper">
+                            <img src="card2img.jpeg" class="img-card" alt="Tum Hi Ho">
+                            <button class="play-btn-card" aria-label="Play Tum Hi Ho">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
                         <p class="title">Tum Hi Ho</p>
                         <p class="info">How life feels incomplete without the beloved.</p>
                     </div>
-                    <div class="card">
-                        <img src="card2img.jpeg" class="img-card">
-                        <p class="title">Tum Saath Ho</p>
-                        <p class="info">Comfort that comes from being together.</p>
-                    </div>
-                    <div class="card">
-                        <img src="card2img.jpeg" class="img-card">
+                    <div class="card" data-song="channa-mereya" id="card-3">
+                        <div class="card-img-wrapper">
+                            <img src="card3img.jpeg" class="img-card" alt="Channa Mereya">
+                            <button class="play-btn-card" aria-label="Play Channa Mereya">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
                         <p class="title">Channa Mereya</p>
                         <p class="info">Pain of unfulfilled love.</p>
                     </div>
-                    <div class="card">
-                        <img src="card2img.jpeg" class="img-card">
+                    <div class="card" data-song="apna-bana-le" id="card-4">
+                        <div class="card-img-wrapper">
+                            <img src="card4img.jpeg" class="img-card" alt="Apna Bana Le">
+                            <button class="play-btn-card" aria-label="Play Apna Bana Le">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
                         <p class="title">Apna Bana Le</p>
                         <p class="info">Desire to be loved and accepted.</p>
                     </div>
-                    <div class="card">
-                        <img src="card2img.jpeg" class="img-card">
+                    <div class="card" data-song="hi-nanna" id="card-5">
+                        <div class="card-img-wrapper">
+                            <img src="card5img.jpeg" class="img-card" alt="Hi Nanna OST">
+                            <button class="play-btn-card" aria-label="Play Hi Nanna OST">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
                         <p class="title">Hi Nanna OST</p>
-                        <p class="info">Filled with love, joy.</p>
+                        <p class="info">Filled with love, joy and warmth.</p>
                     </div>
-                    <div class="card">
-                        <img src="card2img.jpeg" class="img-card">
+                    <div class="card" data-song="aaradhya" id="card-6">
+                        <div class="card-img-wrapper">
+                            <img src="card6img.jpeg" class="img-card" alt="Aaradhya">
+                            <button class="play-btn-card" aria-label="Play Aaradhya">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
                         <p class="title">Aaradhya</p>
                         <p class="info">Worship and deep respect for a divine being.</p>
                     </div>
-                   
-            
                 </div>
+            </section>
 
-                <h2>Featured charts</h2>
+            <!-- Trending Now -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2>Trending now near you</h2>
+                    <a href="#" class="show-all">Show all</a>
+                </div>
                 <div class="cards-container">
-                    <div class="card">
-                        <img src="card5img.jpeg" class="img-card">
-                        <p class="title">Top 50-Global</p>
+                    <div class="card" data-song="tum-saath-ho" id="card-7">
+                        <div class="card-img-wrapper">
+                            <img src="card3img.jpeg" class="img-card" alt="Tum Saath Ho">
+                            <button class="play-btn-card" aria-label="Play Tum Saath Ho">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <p class="title">Tum Saath Ho</p>
+                        <p class="info">Comfort that comes from being together.</p>
+                    </div>
+                    <div class="card" data-song="tere-sang-yaara" id="card-8">
+                        <div class="card-img-wrapper">
+                            <img src="card1img.jpeg" class="img-card" alt="Tere Sang Yaara">
+                            <button class="play-btn-card" aria-label="Play Tere Sang Yaara">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <p class="title">Tere Sang Yaara</p>
+                        <p class="info">A soulful journey of eternal togetherness.</p>
+                    </div>
+                    <div class="card" data-song="kesariya" id="card-9">
+                        <div class="card-img-wrapper">
+                            <img src="card4img.jpeg" class="img-card" alt="Kesariya">
+                            <button class="play-btn-card" aria-label="Play Kesariya">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <p class="title">Kesariya</p>
+                        <p class="info">Colors of love painted in saffron hues.</p>
+                    </div>
+                    <div class="card" data-song="raataan-lambiyan" id="card-10">
+                        <div class="card-img-wrapper">
+                            <img src="card5img.jpeg" class="img-card" alt="Raataan Lambiyan">
+                            <button class="play-btn-card" aria-label="Play Raataan Lambiyan">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <p class="title">Raataan Lambiyan</p>
+                        <p class="info">When nights stretch endlessly in love's embrace.</p>
+                    </div>
+                    <div class="card" data-song="ae-dil-hai-mushkil" id="card-11">
+                        <div class="card-img-wrapper">
+                            <img src="card6img.jpeg" class="img-card" alt="Ae Dil Hai Mushkil">
+                            <button class="play-btn-card" aria-label="Play Ae Dil Hai Mushkil">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <p class="title">Ae Dil Hai Mushkil</p>
+                        <p class="info">The heart's struggle with unrequited love.</p>
+                    </div>
+                    <div class="card" data-song="kalank-title" id="card-12">
+                        <div class="card-img-wrapper">
+                            <img src="card2img.jpeg" class="img-card" alt="Kalank Title Track">
+                            <button class="play-btn-card" aria-label="Play Kalank">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <p class="title">Kalank</p>
+                        <p class="info">Blemishes of love and destiny intertwined.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Charts -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2>Featured charts</h2>
+                    <a href="#" class="show-all">Show all</a>
+                </div>
+                <div class="cards-container">
+                    <div class="card" data-song="top-global" id="card-13">
+                        <div class="card-img-wrapper">
+                            <img src="card5img.jpeg" class="img-card" alt="Top 50 Global">
+                            <button class="play-btn-card" aria-label="Play Top 50 Global">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <p class="title">Top 50 - Global</p>
                         <p class="info">Collection of top songs Global.</p>
                     </div>
-                    <div class="card">
-                        <img src="card6img.jpeg" class="img-card">
-                        <p class="title">Top-Global</p>
+                    <div class="card" data-song="top-india" id="card-14">
+                        <div class="card-img-wrapper">
+                            <img src="card6img.jpeg" class="img-card" alt="Top India">
+                            <button class="play-btn-card" aria-label="Play Top India">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <p class="title">Top Songs - India</p>
                         <p class="info">Hits of 2024 India.</p>
                     </div>
-                    <div class="card">
-                        <img src="card1img.jpeg" class="img-card">
-                        <p class="title">Top-India</p>
+                    <div class="card" data-song="viral-50" id="card-15">
+                        <div class="card-img-wrapper">
+                            <img src="card1img.jpeg" class="img-card" alt="Viral 50">
+                            <button class="play-btn-card" aria-label="Play Viral 50">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <p class="title">Viral 50 - India</p>
                         <p class="info">Your daily updates of most played tracks...</p>
                     </div>
-                </div> 
-                <br><br><br>
-                <br> <br> <br>
-                <br> <br> <br> <br> <br> <br> <br> 
+                    <div class="card" data-song="bollywood-hits" id="card-16">
+                        <div class="card-img-wrapper">
+                            <img src="card3img.jpeg" class="img-card" alt="Bollywood Hits">
+                            <button class="play-btn-card" aria-label="Play Bollywood Hits">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <p class="title">Bollywood Hits</p>
+                        <p class="info">The biggest Bollywood songs right now.</p>
+                    </div>
+                    <div class="card" data-song="indie-mix" id="card-17">
+                        <div class="card-img-wrapper">
+                            <img src="card4img.jpeg" class="img-card" alt="Indie India Mix">
+                            <button class="play-btn-card" aria-label="Play Indie India Mix">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+                        <p class="title">Indie India Mix</p>
+                        <p class="info">Fresh indie sounds from across India.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="content-footer" id="content-footer">
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h3>Company</h3>
+                        <a href="#">About</a>
+                        <a href="#">Jobs</a>
+                        <a href="#">For the Record</a>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Communities</h3>
+                        <a href="#">For Artists</a>
+                        <a href="#">Developers</a>
+                        <a href="#">Advertising</a>
+                        <a href="#">Investors</a>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Useful Links</h3>
+                        <a href="#">Support</a>
+                        <a href="#">Free Mobile App</a>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Spotify Plans</h3>
+                        <a href="#">Premium Individual</a>
+                        <a href="#">Premium Duo</a>
+                        <a href="#">Premium Family</a>
+                        <a href="#">Premium Student</a>
+                        <a href="#">Spotify Free</a>
+                    </div>
+                </div>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-icon" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="social-icon" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+                <hr class="footer-divider">
+                <p class="copyright">&copy; 2024 Spotify AB</p>
+            </footer>
         </div>
     </div>
 
-    <div class="music-player">
+    <!-- Music Player -->
+    <div class="music-player" id="music-player">
         <div class="left">
-            <img src="album_picture.jpeg" class="playpic">
-            <div>
+            <img src="album_picture.jpeg" class="playpic" alt="Album Art" id="album-art">
+            <div class="song-info">
                 <p id="song-name">Tere Sang Yaara</p>
-                <p class="author">Artist Name: Arijit Singh</p>
+                <p class="author" id="artist-name">Arijit Singh</p>
             </div>
-            <img src="album_icon1.png" class="heart" id ="h">
-            <img src="album_icon2.png" class="tv" id ="t">
+            <button class="icon-btn" id="like-btn" title="Save to your Liked Songs">
+                <i class="fa-regular fa-heart"></i>
+            </button>
         </div>
 
         <div class="mid">
             <div class="playbar">
-                <img src="player_icon1.png"  class="player-icon">
-                <img src="player_icon2.png" class="player-icon">
-                <img src="player_icon3.png" style="opacity: 1; height: 1.7rem; width:1.7rem;" class="player-icon">
-                <img src="player_icon4.png" class="player-icon">
-                <img src="player_icon5.png" class="player-icon">
+                <button class="player-icon-btn" id="shuffle-btn" title="Shuffle">
+                    <i class="fa-solid fa-shuffle"></i>
+                </button>
+                <button class="player-icon-btn" id="prev-btn" title="Previous">
+                    <i class="fa-solid fa-backward-step"></i>
+                </button>
+                <button class="play-pause-btn" id="play-pause-btn" title="Play">
+                    <i class="fa-solid fa-play" id="play-icon"></i>
+                </button>
+                <button class="player-icon-btn" id="next-btn" title="Next">
+                    <i class="fa-solid fa-forward-step"></i>
+                </button>
+                <button class="player-icon-btn" id="repeat-btn" title="Repeat">
+                    <i class="fa-solid fa-repeat"></i>
+                </button>
             </div>
             <div class="progress-bar">
-                <span class="current-time">00:00</span>
-                <input type="range" name="progress" id="progress" min="0" value="0" max="100">
-                <span class="total-time">3:33</span>
+                <span class="current-time" id="current-time">0:00</span>
+                <div class="progress-wrapper" id="progress-wrapper">
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progress-fill"></div>
+                        <div class="progress-thumb" id="progress-thumb"></div>
+                    </div>
+                </div>
+                <span class="total-time" id="total-time">3:33</span>
             </div>
         </div>
 
         <div class="right">
-            <img src="controls_icon1.png" id="control-icon1">
-            <img src="controls_icon3.png" id="control-icon2">
-            <img src="controls_icon4.png" id="control-icon3">
-            <img src="controls_icon5.png" id="control-icon4">
-            <input type="range" name="progress" id="volume" min="0" value="0" max="100">
-
-
-
+            <button class="player-icon-btn" id="lyrics-btn" title="Lyrics">
+                <i class="fa-solid fa-microphone-lines"></i>
+            </button>
+            <button class="player-icon-btn" id="queue-btn" title="Queue">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <button class="player-icon-btn" id="devices-btn" title="Connect to a device">
+                <i class="fa-solid fa-desktop"></i>
+            </button>
+            <button class="player-icon-btn" id="volume-btn" title="Mute">
+                <i class="fa-solid fa-volume-high" id="volume-icon"></i>
+            </button>
+            <div class="volume-wrapper" id="volume-wrapper">
+                <div class="volume-track">
+                    <div class="volume-fill" id="volume-fill" style="width: 70%;"></div>
+                    <div class="volume-thumb" id="volume-thumb" style="left: 70%;"></div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
