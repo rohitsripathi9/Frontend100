@@ -1,14 +1,10 @@
-// ===== Spotify Clone - Interactive Script =====
-
 document.addEventListener('DOMContentLoaded', () => {
-    // ===== GREETING =====
     const greetingEl = document.getElementById('greeting-text');
     if (greetingEl) {
         const h = new Date().getHours();
         greetingEl.textContent = h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
     }
 
-    // ===== SONG DATA =====
     const songs = {
         'tum-hi-ho': { name: 'Tum Hi Ho', artist: 'Arijit Singh', duration: '4:22', img: 'card2img.jpeg' },
         'channa-mereya': { name: 'Channa Mereya', artist: 'Arijit Singh', duration: '4:49', img: 'card3img.jpeg' },
@@ -29,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'indie-mix': { name: 'Indie India Mix', artist: 'Various Artists', duration: '3:48', img: 'card4img.jpeg' },
     };
 
-    // ===== PLAYER STATE =====
     let currentSong = 'tere-sang-yaara';
     let isPlaying = false;
     let progress = 0;
@@ -63,18 +58,17 @@ document.addEventListener('DOMContentLoaded', () => {
         likeBtn: document.getElementById('like-btn'),
     };
 
-    // ===== HELPERS =====
     function parseDuration(str) {
         const [m, s] = str.split(':').map(Number);
         return m * 60 + s;
     }
+
     function formatTime(sec) {
         const m = Math.floor(sec / 60);
         const s = Math.floor(sec % 60);
         return `${m}:${s.toString().padStart(2, '0')}`;
     }
 
-    // ===== LOAD SONG =====
     function loadSong(key) {
         const song = songs[key];
         if (!song) return;
@@ -87,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateProgress();
     }
 
-    // ===== PLAY/PAUSE =====
     function togglePlay() {
         isPlaying = !isPlaying;
         els.playIcon.className = isPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play';
@@ -121,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
         els.currentTime.textContent = formatTime(progress);
     }
 
-    // ===== NEXT/PREV =====
     function nextSong() {
         let idx = songKeys.indexOf(currentSong);
         idx = isShuffle ? Math.floor(Math.random() * songKeys.length) : (idx + 1) % songKeys.length;
@@ -137,7 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isPlaying) startProgress();
     }
 
-    // ===== EVENT LISTENERS =====
+    function setVolume(pct) {
+        volume = Math.max(0, Math.min(100, pct));
+        els.volumeFill.style.width = volume + '%';
+        els.volumeThumb.style.left = volume + '%';
+        const icon = els.volumeIcon;
+        icon.className = volume === 0 ? 'fa-solid fa-volume-xmark' : volume < 50 ? 'fa-solid fa-volume-low' : 'fa-solid fa-volume-high';
+    }
+
     els.playPauseBtn.addEventListener('click', togglePlay);
     els.nextBtn.addEventListener('click', nextSong);
     els.prevBtn.addEventListener('click', prevSong);
@@ -158,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
         els.likeBtn.classList.toggle('active', isLiked);
     });
 
-    // Progress bar click
     els.progressWrapper.addEventListener('click', (e) => {
         const rect = els.progressWrapper.getBoundingClientRect();
         const pct = (e.clientX - rect.left) / rect.width;
@@ -167,15 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateProgress();
         if (isPlaying) startProgress();
     });
-
-    // Volume
-    function setVolume(pct) {
-        volume = Math.max(0, Math.min(100, pct));
-        els.volumeFill.style.width = volume + '%';
-        els.volumeThumb.style.left = volume + '%';
-        const icon = els.volumeIcon;
-        icon.className = volume === 0 ? 'fa-solid fa-volume-xmark' : volume < 50 ? 'fa-solid fa-volume-low' : 'fa-solid fa-volume-high';
-    }
 
     els.volumeWrapper.addEventListener('click', (e) => {
         const rect = els.volumeWrapper.getBoundingClientRect();
@@ -188,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
         else { setVolume(prevVolume); }
     });
 
-    // ===== CARD CLICKS =====
     document.querySelectorAll('.card[data-song], .quick-card[data-song]').forEach(card => {
         card.addEventListener('click', () => {
             const key = card.dataset.song;
@@ -200,7 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== NAV ACTIVE STATE =====
     document.querySelectorAll('.nav-option').forEach(opt => {
         opt.addEventListener('click', () => {
             document.querySelectorAll('.nav-option').forEach(o => o.classList.remove('active'));
@@ -208,14 +195,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== KEYBOARD SHORTCUTS =====
     document.addEventListener('keydown', (e) => {
         if (e.code === 'Space' && e.target.tagName !== 'INPUT') { e.preventDefault(); togglePlay(); }
         if (e.code === 'ArrowRight' && e.ctrlKey) nextSong();
         if (e.code === 'ArrowLeft' && e.ctrlKey) prevSong();
     });
 
-    // Init
     loadSong(currentSong);
     setVolume(70);
 });
